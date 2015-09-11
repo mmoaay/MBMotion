@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MBMotion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechat" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-Ew-MSv">
+                                <rect key="frame" x="225" y="40" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="jG8-CJ-uvl"/>
+                                    <constraint firstAttribute="width" constant="150" id="wOI-EY-jDd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftGG-走心的Swift翻译组" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYC-pB-Uuv">
+                                <rect key="frame" x="194" y="209" width="212" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.66274509800000003" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M7-Ic-zNC">
+                                <rect key="frame" x="220" y="250" width="160" height="40"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.66274509800000003" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="CBc-q5-4fe"/>
+                                    <constraint firstAttribute="height" constant="40" id="hie-cA-MhH"/>
+                                </constraints>
+                                <state key="normal" title="ShowActionSheet">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="showPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lfE-nf-N0r"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Jd1-Ew-MSv" secondAttribute="centerX" id="2d1-HB-FRo"/>
+                            <constraint firstItem="4M7-Ic-zNC" firstAttribute="top" secondItem="uYC-pB-Uuv" secondAttribute="bottom" constant="20" id="5uw-Mi-OIv"/>
+                            <constraint firstItem="Jd1-Ew-MSv" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="9Tg-1S-5NB"/>
+                            <constraint firstAttribute="centerX" secondItem="4M7-Ic-zNC" secondAttribute="centerX" id="INS-f5-qZg"/>
+                            <constraint firstItem="uYC-pB-Uuv" firstAttribute="top" secondItem="Jd1-Ew-MSv" secondAttribute="bottom" constant="19" id="RE6-XR-Adr"/>
+                            <constraint firstItem="4M7-Ic-zNC" firstAttribute="top" secondItem="Jd1-Ew-MSv" secondAttribute="bottom" constant="20" id="SdA-Fm-2cK"/>
+                            <constraint firstItem="4M7-Ic-zNC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="j2m-VA-mWt"/>
+                            <constraint firstAttribute="centerX" secondItem="uYC-pB-Uuv" secondAttribute="centerX" id="tJj-3Q-f8N"/>
+                            <constraint firstAttribute="centerY" secondItem="4M7-Ic-zNC" secondAttribute="centerY" constant="18" id="wtI-X7-5iF"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SdA-Fm-2cK"/>
+                                <exclude reference="j2m-VA-mWt"/>
+                                <exclude reference="wtI-X7-5iF"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="wechat" width="430" height="430"/>
+    </resources>
+</document>

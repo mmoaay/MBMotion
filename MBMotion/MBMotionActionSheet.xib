@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MBMotionActionSheet" customModule="MBMotion" customModuleProvider="target">
+            <connections>
+                <outlet property="bkgroundView" destination="iN0-l3-epB" id="grF-ek-w7v"/>
+                <outlet property="contentView" destination="uvB-BK-HdY" id="6vU-w9-pOu"/>
+                <outlet property="motionView" destination="4Js-Vx-pJf" id="ibI-83-HTL"/>
+                <outlet property="switchButton" destination="fEf-f7-lWy" id="s5t-hv-UAu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" id="iN0-l3-epB" userLabel="BKGroundView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="794" y="302"/>
+        </view>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Js-Vx-pJf" userLabel="MotionView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-BK-HdY" userLabel="ContentView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.66274509800000003" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-f7-lWy">
+                    <rect key="frame" x="500" y="4" width="80" height="40"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.66274509800000003" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="OBY-Ef-YpQ"/>
+                        <constraint firstAttribute="width" constant="80" id="sAd-Ci-f9p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Collapse">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="switchPressed:" destination="-1" eventType="touchUpInside" id="7AC-mJ-5sf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fEf-f7-lWy" secondAttribute="trailing" constant="20" id="0mt-Tf-2eb"/>
+                <constraint firstAttribute="trailing" secondItem="uvB-BK-HdY" secondAttribute="trailing" id="6hO-I5-Ek9"/>
+                <constraint firstItem="uvB-BK-HdY" firstAttribute="top" secondItem="fEf-f7-lWy" secondAttribute="bottom" constant="-44" id="EFK-rk-Rym"/>
+                <constraint firstAttribute="bottom" secondItem="uvB-BK-HdY" secondAttribute="bottom" id="VGb-H9-Ge0"/>
+                <constraint firstItem="uvB-BK-HdY" firstAttribute="leading" secondItem="4Js-Vx-pJf" secondAttribute="leading" id="WgZ-cO-kRg"/>
+                <constraint firstItem="uvB-BK-HdY" firstAttribute="top" secondItem="fEf-f7-lWy" secondAttribute="bottom" constant="10" id="db4-aI-5ml"/>
+                <constraint firstAttribute="height" constant="44" id="hdU-cZ-ujD"/>
+                <constraint firstItem="fEf-f7-lWy" firstAttribute="top" secondItem="4Js-Vx-pJf" secondAttribute="top" id="jE6-Yx-EcP"/>
+                <constraint firstItem="uvB-BK-HdY" firstAttribute="top" secondItem="4Js-Vx-pJf" secondAttribute="top" id="v0G-ac-1gW"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="hdU-cZ-ujD"/>
+                    <exclude reference="db4-aI-5ml"/>
+                    <exclude reference="jE6-Yx-EcP"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="131" y="302"/>
+        </view>
+    </objects>
+</document>
