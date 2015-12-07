@@ -15,7 +15,6 @@ class MBMotionActionSheet: NSObject {
     @IBOutlet var bkgroundView: UIView!
     @IBOutlet var motionView: UIView!
     
-    @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     
     private weak var containerView: UIView?
@@ -48,62 +47,24 @@ class MBMotionActionSheet: NSObject {
             make.top.equalTo(self.contentView.snp_top).offset(44.0)
         }
         
-        self.initSwitchButtonStyle()
-    }
-    
-    private func initSwitchButtonStyle() {
-        self.containerView?.layoutIfNeeded()
-        
-        let topViewMaskPath = UIBezierPath(roundedRect: self.switchButton.bounds, byRoundingCorners: (UIRectCorner.TopLeft|UIRectCorner.TopRight), cornerRadii: CGSizeMake(5.0, 5.0))
-        var topViewMaskLayer = CAShapeLayer()
-        topViewMaskLayer.frame = self.switchButton.bounds;
-        topViewMaskLayer.path = topViewMaskPath.CGPath;
-        self.switchButton.layer.mask = topViewMaskLayer;
-    }
-    
-    @IBAction func switchPressed(sender: AnyObject) {
-        if true == isExpanded {
-            self.collapseActionSheet()
-        } else {
-            self.expandActionSheet()
-        }
+        self.addActionSheet()
     }
     
     func showActionSheet() {
         if (true == isShown) {
             self.hideActionSheet()
-            
         } else {
-            self.addActionSheet()
             self.expandActionSheet()
         }
     }
     
-    
-    private func animatedWithMotionView(height:Float, duration:NSTimeInterval) {
+    private func animatedWithMotionView(height:Float, duration:NSTimeInterval ,options:UIViewAnimationOptions) {
         self.motionView.snp_updateConstraints { (make) -> Void in
             make.height.equalTo(height)
         }
-        UIView.animateWithDuration(duration, animations: { () -> Void in
-            self.containerView?.layoutIfNeeded()
-            }) { (Bool) -> Void in
-        }
-    }
-    
-    private func animatedWithSwitchButton(opacity:Float, duration:NSTimeInterval) {
-        self.switchButton.snp_updateConstraints { (make) -> Void in
-            if 0.0 == opacity {
-                make.bottom.equalTo(self.contentView.snp_top).offset(84.0)
-            } else {
-                make.bottom.equalTo(self.contentView.snp_top).offset(44.0)
-            }
-        }
-        UIView.animateWithDuration(duration, animations: { () -> Void in
-            self.containerView?.layoutIfNeeded()
-            self.switchButton.layer.opacity = opacity
-            }) { (Bool) -> Void in
-                
-        }
+        UIView.animateWithDuration(duration, delay: 0.0, options: options, animations: { () -> Void in
+            UIApplication.sharedApplication().keyWindow?.layoutIfNeeded()
+            }, completion: nil)
     }
     
     private func animtedWithRipples(fromValue:Float, toValue:Float, duration:NSTimeInterval, keyPath:String, key:String){
@@ -111,7 +72,7 @@ class MBMotionActionSheet: NSObject {
         
         inAnimation.duration = duration
         inAnimation.fillMode = kCAFillModeForwards
-        inAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        inAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         var pathValues = Array<CGPathRef>()
         for(var i = 0; i <= Int(duration * 60); i++){
             pathValues.append(pathForRipples(Float(Float(i) / (Float(duration) * 60)), fromValue:fromValue, toValue:toValue))
@@ -127,11 +88,11 @@ class MBMotionActionSheet: NSObject {
     }
     
     private func pathForRipples(progress:Float, fromValue:Float, toValue:Float) -> CGPathRef{
-        var valuePorgress = CGFloat((toValue-fromValue) * progress)
-        var path = UIBezierPath()
+        let valuePorgress = CGFloat((toValue-fromValue) * progress)
+        let path = UIBezierPath()
         
         
-        var controlPointTop = CGPointMake(self.contentView.width * 0.5, (CGFloat(fromValue)+valuePorgress))
+        let controlPointTop = CGPointMake(self.contentView.width * 0.5, (CGFloat(fromValue)+valuePorgress))
         path.moveToPoint(CGPointMake(0, 44))
         path.addQuadCurveToPoint(CGPointMake(self.contentView.width, 44), controlPoint: controlPointTop)
         path.addLineToPoint(CGPointMake(self.contentView.width, self.contentView.height))
@@ -141,7 +102,22 @@ class MBMotionActionSheet: NSObject {
         return path.CGPath
     }
     
+    private func animtedWithContainerView(sx:CGFloat,sy:CGFloat,sz:CGFloat, duration:NSTimeInterval) {
+        UIView.animateWithDuration(duration) { () -> Void in
+            self.containerView?.layer.transform = CATransform3DMakeScale(sx, sy, sz)
+        }
+    }
+    
+    private func animatedWithStatusBar (style:UIStatusBarStyle, duration:NSTimeInterval) {
+        if let _ = self.containerView {
+//            UIView.animateWithDuration(duration) { () -> Void in
+                UIApplication.sharedApplication().setStatusBarStyle(style, animated: true)
+//            }
+        }
+    }
+    
     private func animtedWithBkGround(opacity:Float, duration:NSTimeInterval) {
+        
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.bkgroundView.layer.opacity = opacity
             }) { (Bool) -> Void in
@@ -154,138 +130,123 @@ class MBMotionActionSheet: NSObject {
     }
     
     private func collapseActionSheet() {
-        self.animatedWithSwitchButton(0.0, duration: 0.2)
+        self.animatedWithStatusBar(UIStatusBarStyle.Default,duration: 0.8)
+        self.animtedWithBkGround(0.0, duration: 0.8)
+        self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
         
-        self.executeAfterDelay(0.2, clurse: { () -> Void in
-            self.animtedWithBkGround(0.0, duration: 0.8)
-            self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
-        })
-        
-        self.executeAfterDelay(0.3, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
             self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1, keyPath: "path", key: "stepthree")
         })
         
-        self.executeAfterDelay(0.4, clurse: {
-            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.4, keyPath: "path", key: "steptwo")
-            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)/2.0, duration: 0.4)
+        MBTimeUtil.executeAfterDelay(0.2, clurse: {
+            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "steptwo")
+            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)/2.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseOut)
         })
         
-        self.executeAfterDelay(0.8, clurse: {
-            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.2, keyPath: "path", key: "stepone")
+        MBTimeUtil.executeAfterDelay(0.5, clurse: {
+            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3, keyPath: "path", key: "stepone")
         })
         
-        self.executeAfterDelay(1.0, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
             self.isExpanded = false
-            self.setSwitchButtonTitle()
-            
-            self.animatedWithSwitchButton(1.0, duration: 0.2)
         })
     }
     
     private func expandActionSheet() {
-        self.animatedWithSwitchButton(0.0, duration: 0.2)
+        self.addActionSheet()
         
-        self.executeAfterDelay(0.2, clurse: {
-            self.animtedWithBkGround(0.1, duration: 0.8)
-            self.animtedWithRipples(44.0, toValue: 0.0, duration: 0.2, keyPath: "path", key: "stepone")
+        self.animtedWithBkGround(0.4, duration: 0.8)
+        self.animatedWithStatusBar(UIStatusBarStyle.LightContent,duration: 0.8)
+        
+        self.animtedWithRipples(44.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "stepone")
+        self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.3)
+        
+        
+        MBTimeUtil.executeAfterDelay(0.3, clurse: {
+            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)-25.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseIn)
+            self.animtedWithRipples(0.0, toValue: 54.0, duration: 0.3, keyPath: "path", key: "steptwo")
+            
+            self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.4)
         })
         
-        self.executeAfterDelay(0.4, clurse: {
-            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)-100.0, duration: 0.4)
-            self.animtedWithRipples(0.0, toValue: 54.0, duration: 0.4, keyPath: "path", key: "steptwo")
-        })
-        
-        self.executeAfterDelay(0.8, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
             self.animtedWithRipples(54.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepthree")
         })
         
-        self.executeAfterDelay(0.9, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.7, clurse: { () -> Void in
             self.animtedWithRipples(34.0, toValue: 44.0, duration: 0.1, keyPath: "path", key: "stepfour")
+            self.animtedWithContainerView(0.9, sy: 0.9, sz: 0.9, duration: 0.1)
         })
         
-        self.executeAfterDelay(1.0, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
             self.isExpanded = true
-            self.setSwitchButtonTitle()
             self.isShown = true
-            
-            self.animatedWithSwitchButton(1.0, duration: 0.2)
         })
-    }
-    
-    private func setSwitchButtonTitle() {
-        self.switchButton.setTitle(true == self.isExpanded ? "Collapse" : "Expand", forState: UIControlState.Normal)
     }
     
     private func addActionSheet() {
-        if let containerView = self.containerView {
-            self.containerView?.addSubview(self.bkgroundView)
-            self.bkgroundView.snp_remakeConstraints { (make) -> Void in
-                make.edges.equalTo(self.containerView!)
-            }
-            
-            self.containerView?.addSubview(self.motionView)
-            self.motionView.snp_remakeConstraints { (make) -> Void in
-                make.height.equalTo(44.0)
-                make.leading.trailing.equalTo(self.containerView!)
-                make.bottom.equalTo(self.containerView!)
-            }
-            self.containerView?.layoutIfNeeded()
-            
-            backgroundLayer.fillColor = self.contentView.backgroundColor?.CGColor
-            let path = UIBezierPath()
-            path.moveToPoint(CGPointMake(0, 44.0))
-            path.addLineToPoint(CGPointMake(self.contentView.width, 44.0))
-            path.addLineToPoint(CGPointMake(self.contentView.width, self.contentView.height))
-            path.addLineToPoint(CGPointMake(0, self.contentView.height))
-            path.addLineToPoint(CGPointMake(0, 44.0))
-            backgroundLayer.strokeColor = UIColor.clearColor().CGColor
-            backgroundLayer.path = path.CGPath
-            backgroundLayer.frame = self.contentView.layer.bounds
-            
-            self.contentView.layer.mask = backgroundLayer
-            self.contentView.layer.masksToBounds = true
+        
+        UIApplication.sharedApplication().keyWindow?.addSubview(self.bkgroundView)
+        self.bkgroundView.snp_remakeConstraints { (make) -> Void in
+            make.edges.equalTo(UIApplication.sharedApplication().keyWindow!)
         }
+        
+        UIApplication.sharedApplication().keyWindow?.addSubview(self.motionView)
+        self.motionView.snp_remakeConstraints { (make) -> Void in
+            make.height.equalTo(44.0+49.0)
+            make.leading.trailing.equalTo(UIApplication.sharedApplication().keyWindow!)
+            make.bottom.equalTo(UIApplication.sharedApplication().keyWindow!)
+        }
+        
+        
+        
+        UIApplication.sharedApplication().keyWindow?.layoutIfNeeded()
+        
+        backgroundLayer.fillColor = self.contentView.backgroundColor?.CGColor
+        let path = UIBezierPath()
+        path.moveToPoint(CGPointMake(0, 44.0))
+        path.addLineToPoint(CGPointMake(self.contentView.width, 44.0))
+        path.addLineToPoint(CGPointMake(self.contentView.width, self.contentView.height))
+        path.addLineToPoint(CGPointMake(0, self.contentView.height))
+        path.addLineToPoint(CGPointMake(0, 44.0))
+        backgroundLayer.strokeColor = UIColor.clearColor().CGColor
+        backgroundLayer.path = path.CGPath
+        backgroundLayer.frame = self.contentView.layer.bounds
+        
+        self.contentView.layer.mask = backgroundLayer
+        self.contentView.layer.masksToBounds = true
+    }
+    
+    func removeActionSheet() {
+        self.motionView.removeFromSuperview()
+        self.bkgroundView.removeFromSuperview()
     }
     
     private func hideActionSheet() {
-        self.animatedWithSwitchButton(0.0, duration: 0.2)
+        self.animtedWithBkGround(0.0, duration: 0.8)
+        self.animatedWithStatusBar(UIStatusBarStyle.Default,duration: 0.8)
+        self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
+        self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.1)
         
-        self.executeAfterDelay(0.2, clurse: { () -> Void in
-            self.animtedWithBkGround(0.0, duration: 0.8)
-            self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
-        })
-        
-        self.executeAfterDelay(0.3, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
             self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1, keyPath: "path", key: "stepthree")
+            self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.4)
         })
         
-        self.executeAfterDelay(0.4, clurse: {
-            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.4, keyPath: "path", key: "steptwo")
-            self.animatedWithMotionView(44.0, duration: 0.4)
+        MBTimeUtil.executeAfterDelay(0.2, clurse: {
+            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "steptwo")
+            self.animatedWithMotionView(44.0+49.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseOut)
         })
         
-        self.executeAfterDelay(0.8, clurse: {
-            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.2, keyPath: "path", key: "stepone")
+        MBTimeUtil.executeAfterDelay(0.5, clurse: {
+            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3, keyPath: "path", key: "stepone")
+            self.animtedWithContainerView(1, sy: 1, sz: 1, duration: 0.3)
         })
         
-        self.executeAfterDelay(1.0, clurse: { () -> Void in
+        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
             self.isExpanded = false
-            self.setSwitchButtonTitle()
-            
-            self.motionView.removeFromSuperview()
-            self.bkgroundView.removeFromSuperview()
             self.isShown = false
         })
     }
-    
-    private func executeAfterDelay(delayTime:NSTimeInterval,clurse:() -> Void
-        ){
-            let delay = dispatch_time(DISPATCH_TIME_NOW,
-                Int64(delayTime * Double(NSEC_PER_SEC)))
-            dispatch_after(delay, dispatch_get_main_queue()) {
-                clurse()
-            }
-    }
-    
 }
 

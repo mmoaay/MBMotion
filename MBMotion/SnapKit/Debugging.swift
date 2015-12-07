@@ -37,7 +37,7 @@ public extension View {
             return objc_getAssociatedObject(self, &labelKey) as? String
         }
         set {
-            objc_setAssociatedObject(self, &labelKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_COPY_NONATOMIC))
+            objc_setAssociatedObject(self, &labelKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
     }
     
@@ -53,7 +53,7 @@ public extension LayoutConstraint {
             return objc_getAssociatedObject(self, &labelKey) as? String
         }
         set {
-            objc_setAssociatedObject(self, &labelKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_COPY_NONATOMIC))
+            objc_setAssociatedObject(self, &labelKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
     }
 
@@ -187,6 +187,7 @@ private extension NSLayoutAttribute {
         case .CenterX:              return "centerX"
         case .CenterY:              return "centerY"
         case .Baseline:             return "baseline"
+        default:                    return "default"
         }
         #endif
         
