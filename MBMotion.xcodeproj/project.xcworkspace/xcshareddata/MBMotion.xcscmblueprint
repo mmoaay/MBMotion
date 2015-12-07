@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2D9ED18EF095B20B356DC70A26C25C112E87D765",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2D9ED18EF095B20B356DC70A26C25C112E87D765" : 0,
+    "5420BC34BCCCACC2E5A654D19A429165FE584AC7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C2117E97-46F9-40B6-9E40-8BB03DD259DD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2D9ED18EF095B20B356DC70A26C25C112E87D765" : "MBMotion\/",
+    "5420BC34BCCCACC2E5A654D19A429165FE584AC7" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MBMotion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MBMotion.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mmoaay\/MBMotion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2D9ED18EF095B20B356DC70A26C25C112E87D765"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mmoaay\/MBPlayGroundForSwiftGG.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5420BC34BCCCACC2E5A654D19A429165FE584AC7"
+    }
+  ]
+}
