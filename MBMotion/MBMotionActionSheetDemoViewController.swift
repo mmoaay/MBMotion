@@ -20,13 +20,15 @@ class MBMotionActionSheetDemoViewController: UIViewController,MBMotionContentVie
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         let contentView = MBMotionContentView()
         self.actionSheet = MBMotionActionSheet(containerView: self.navigationController?.view, contentView: contentView.getContentView())
         contentView.delegate = self
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         self.actionSheet?.removeActionSheet()
     }
 
@@ -35,8 +37,12 @@ class MBMotionActionSheetDemoViewController: UIViewController,MBMotionContentVie
         // Dispose of any resources that can be recreated.
     }
     
-    func switchButtonPressed(status:ButtonStatus) {
-        self.actionSheet?.showActionSheet()
+    func switchButtonPressed(status:MBMotionHamburgButtonStatus) {
+        if MBMotionHamburgButtonStatus.Open == status {
+            self.actionSheet?.expandActionSheet()
+        } else {
+            self.actionSheet?.collapseActionSheet()
+        }
     }
     /*
     // MARK: - Navigation

@@ -9,6 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MBMotionHamburgButton" customModule="MBMotion" customModuleProvider="target">
             <connections>
                 <outlet property="bottomLine" destination="29Y-Ue-gWE" id="VEg-fO-Bey"/>
+                <outlet property="button" destination="b63-GR-m2z" id="bmC-4r-VKL"/>
                 <outlet property="lineView" destination="yXr-x8-geX" id="48p-bv-VdC"/>
                 <outlet property="topLine" destination="pEB-kn-FX8" id="CNH-NC-fmB"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Sar-EZ-FnT"/>

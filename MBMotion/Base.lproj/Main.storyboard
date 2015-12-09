@@ -11,7 +11,7 @@
         <scene sceneID="sOk-q8-HCU">
             <objects>
                 <navigationController id="wFc-Nm-7dR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O2R-MG-Ut7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O2R-MG-Ut7" customClass="MBNavigationBar" customModule="MBMotion" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
@@ -75,12 +75,12 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="01t-68-o9l"/>
+                    <navigationItem key="navigationItem" title="MBMotion" id="01t-68-o9l" customClass="MBNavigationItem" customModule="MBMotion" customModuleProvider="target"/>
                     <connections>
                         <outlet property="headImageView" destination="BRs-Cu-B36" id="PSa-Os-aLL"/>
                         <outlet property="tableView" destination="BKb-H2-a15" id="d5m-2U-Zed"/>
                         <segue destination="BsW-nu-SNI" kind="show" identifier="fromHomeToWeb" id="xSd-Ts-Q90"/>
-                        <segue destination="SSP-wq-jgf" kind="show" identifier="fromHomeToActionSheet" id="hGa-UQ-8LG"/>
+                        <segue destination="SSP-wq-jgf" kind="show" identifier="fromHomeToMBMotionActionSheet" id="hGa-UQ-8LG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -120,6 +120,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="SwiftGG" id="wDP-mH-dnq" customClass="MBNavigationItem" customModule="MBMotion" customModuleProvider="target"/>
                     <connections>
                         <outlet property="webView" destination="8zM-fq-DIq" id="llE-2U-NOX"/>
                     </connections>
@@ -142,6 +143,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="MBMotionActionSheet" id="S7O-eN-i3h" customClass="MBNavigationItem" customModule="MBMotion" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" image="trash_icon" id="wGd-SH-jDT"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M75-3t-ZiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,5 +154,6 @@
     </scenes>
     <resources>
         <image name="head_image" width="480" height="480"/>
+        <image name="trash_icon" width="20" height="20"/>
     </resources>
 </document>

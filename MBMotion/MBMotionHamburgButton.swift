@@ -9,20 +9,21 @@
 import UIKit
 
 protocol MBMotionHamburgButtonDelegate {
-    func buttonPressed(status:ButtonStatus)
+    func buttonPressed(status:MBMotionHamburgButtonStatus)
 }
 
-enum ButtonStatus:Int{
+enum MBMotionHamburgButtonStatus:Int{
     case Open
     case Close
 }
 
 class MBMotionHamburgButton: UIView {
 
+    @IBOutlet var button: UIButton!
     @IBOutlet var view: UIView!
     var delegate: MBMotionHamburgButtonDelegate?
     
-    private var status = ButtonStatus.Open
+    private var status = MBMotionHamburgButtonStatus.Open
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -38,20 +39,14 @@ class MBMotionHamburgButton: UIView {
     @IBAction func buttonPressed(sender: AnyObject) {
         self.delegate?.buttonPressed(self.status)
         
-        self.animationForButton()
-        
-        if self.status == ButtonStatus.Open {
-            self.status = ButtonStatus.Close
-        } else {
-            self.status = ButtonStatus.Open
-        }
+        self.animatedWithButton()
     }
     
-    private func animationForButton() {
-        if self.status == ButtonStatus.Open {
-            self.animationOpen()
+    private func animatedWithButton() {
+        if self.status == MBMotionHamburgButtonStatus.Open {
+            self.closeSwitchButton()
         } else {
-            self.animationClose()
+            self.openSwithButton()
         }
     }
     
@@ -65,19 +60,12 @@ class MBMotionHamburgButton: UIView {
         animation.toValue = NSValue(CATransform3D: transform)
         animation.duration = duration
         
-        line.layer.addAnimation(animation, forKey: "transform")
+        line.layer.addAnimation(animation, forKey: "line")
         line.layer.transform = transform
-        
-//        UIView.animateWithDuration(duration) { () -> Void in
-//            var transform = CGAffineTransformIdentity
-//            transform = CGAffineTransformTranslate(transform, tx, ty)
-//            transform = CGAffineTransformRotate(transform, angle)
-//            
-//            line.transform = transform
-//        }
     }
     
-    private func animationOpen() {
+    private func closeSwitchButton() {
+        self.button.enabled = false
         self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 3, duration: 0.2)
         self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: -3, duration: 0.2)
         
@@ -95,9 +83,14 @@ class MBMotionHamburgButton: UIView {
             self.animtedWithLine(self.topLine, angle: CGFloat(M_PI_4), tx: 0, ty: 4.5, duration: 0.1)
             self.animtedWithLine(self.bottomLine, angle: CGFloat(M_PI_4*3), tx: 0, ty: -4.5, duration: 0.1)
         }
+        MBTimeUtil.executeAfterDelay(0.8) { () -> Void in
+            self.status = MBMotionHamburgButtonStatus.Close
+            self.button.enabled = true
+        }
     }
     
-    private func animationClose() {
+    private func openSwithButton() {
+        self.button.enabled = false
         self.animtedWithLine(self.topLine, angle: CGFloat(M_PI_4+M_PI_4/5), tx: 0, ty: 4.5, duration: 0.1)
         self.animtedWithLine(self.bottomLine, angle: CGFloat(M_PI_4*3+M_PI_4/5), tx: 0, ty: -4.5, duration: 0.1)
         
@@ -115,8 +108,10 @@ class MBMotionHamburgButton: UIView {
             self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
             self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
         }
-        
-        
+        MBTimeUtil.executeAfterDelay(0.8) { () -> Void in
+            self.status = MBMotionHamburgButtonStatus.Open
+            self.button.enabled = true
+        }
     }
     
     override func awakeFromNib() {

@@ -39,6 +39,10 @@
 		C2CF7CDB1C154EBD00D17C37 /* UIViewParallelHeaderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF7CDA1C154EBD00D17C37 /* UIViewParallelHeaderExtension.swift */; };
 		C2CF7CDE1C1558A900D17C37 /* MBTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CF7CDC1C1558A900D17C37 /* MBTableHeaderView.xib */; };
 		C2CF7CDF1C1558A900D17C37 /* MBTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF7CDD1C1558A900D17C37 /* MBTableHeaderView.swift */; };
+		C2CF7CE41C17E9E600D17C37 /* MBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF7CE31C17E9E600D17C37 /* MBNavigationBar.swift */; };
+		C2CF7CE71C17EAAF00D17C37 /* MBNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF7CE61C17EAAF00D17C37 /* MBNavigationItem.swift */; };
+		C2CF7CEB1C17FA4C00D17C37 /* MBMotionContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CF7CE91C17FA4C00D17C37 /* MBMotionContentTableViewCell.swift */; };
+		C2CF7CEC1C17FA4C00D17C37 /* MBMotionContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CF7CEA1C17FA4C00D17C37 /* MBMotionContentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		C2CF7CDA1C154EBD00D17C37 /* UIViewParallelHeaderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewParallelHeaderExtension.swift; sourceTree = "<group>"; };
 		C2CF7CDC1C1558A900D17C37 /* MBTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBTableHeaderView.xib; sourceTree = "<group>"; };
 		C2CF7CDD1C1558A900D17C37 /* MBTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBTableHeaderView.swift; sourceTree = "<group>"; };
+		C2CF7CE31C17E9E600D17C37 /* MBNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBNavigationBar.swift; sourceTree = "<group>"; };
+		C2CF7CE61C17EAAF00D17C37 /* MBNavigationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBNavigationItem.swift; sourceTree = "<group>"; };
+		C2CF7CE91C17FA4C00D17C37 /* MBMotionContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionContentTableViewCell.swift; sourceTree = "<group>"; };
+		C2CF7CEA1C17FA4C00D17C37 /* MBMotionContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMotionContentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +138,10 @@
 		C23229D21B9D6BF800E7FF8C /* MBMotion */ = {
 			isa = PBXGroup;
 			children = (
-				C2CF7CE01C1558AC00D17C37 /* MBTableHeaderView */,
+				C2CF7CE51C17EA7800D17C37 /* MBNavigationItem */,
+				C2CF7CE21C17E8DE00D17C37 /* MBNavigationBar */,
 				C2CF7CD21C152F7300D17C37 /* Demo */,
 				C2CF7CCF1C152F2C00D17C37 /* MBMotionActionSheet */,
-				C2CF7C8C1C10170C00D17C37 /* MBMotionContentView */,
 				C2CF7C871C1013C200D17C37 /* MBMotionHamburgButton */,
 				C2CF7CCE1C11748900D17C37 /* Lib */,
 				C2CF7CCD1C11747D00D17C37 /* Util */,
@@ -249,6 +257,9 @@
 		C2CF7CD21C152F7300D17C37 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C2CF7CE81C17FA0B00D17C37 /* MBMotionContentTableViewCell */,
+				C2CF7CE01C1558AC00D17C37 /* MBTableHeaderView */,
+				C2CF7C8C1C10170C00D17C37 /* MBMotionContentView */,
 				C2CF7CD51C152FE400D17C37 /* MBMotionActionSheetDemoViewController.swift */,
 				C2CF7CD81C15306500D17C37 /* MBMotionWebViewController.swift */,
 			);
@@ -262,6 +273,31 @@
 				C2CF7CDD1C1558A900D17C37 /* MBTableHeaderView.swift */,
 			);
 			name = MBTableHeaderView;
+			sourceTree = "<group>";
+		};
+		C2CF7CE21C17E8DE00D17C37 /* MBNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF7CE31C17E9E600D17C37 /* MBNavigationBar.swift */,
+			);
+			name = MBNavigationBar;
+			sourceTree = "<group>";
+		};
+		C2CF7CE51C17EA7800D17C37 /* MBNavigationItem */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF7CE61C17EAAF00D17C37 /* MBNavigationItem.swift */,
+			);
+			name = MBNavigationItem;
+			sourceTree = "<group>";
+		};
+		C2CF7CE81C17FA0B00D17C37 /* MBMotionContentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C2CF7CE91C17FA4C00D17C37 /* MBMotionContentTableViewCell.swift */,
+				C2CF7CEA1C17FA4C00D17C37 /* MBMotionContentTableViewCell.xib */,
+			);
+			name = MBMotionContentTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,6 +388,7 @@
 				C2CF7CC81C102EC300D17C37 /* MBMotionContentView.xib in Resources */,
 				C23229E01B9D6BF800E7FF8C /* LaunchScreen.xib in Resources */,
 				C2CF7C8B1C10145500D17C37 /* MBMotionHamburgButton.xib in Resources */,
+				C2CF7CEC1C17FA4C00D17C37 /* MBMotionContentTableViewCell.xib in Resources */,
 				C23229DD1B9D6BF800E7FF8C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,9 +417,11 @@
 				C2CF7CD61C152FE400D17C37 /* MBMotionActionSheetDemoViewController.swift in Sources */,
 				C2345F901BA29B7700E9FF33 /* UIViewFrameExtension.swift in Sources */,
 				C2CF7CC21C10280900D17C37 /* SnapKit.swift in Sources */,
+				C2CF7CE71C17EAAF00D17C37 /* MBNavigationItem.swift in Sources */,
 				C23229F61B9D6C7B00E7FF8C /* MBMotionActionSheet.swift in Sources */,
 				C23229D81B9D6BF800E7FF8C /* ViewController.swift in Sources */,
 				C23229D61B9D6BF800E7FF8C /* AppDelegate.swift in Sources */,
+				C2CF7CEB1C17FA4C00D17C37 /* MBMotionContentTableViewCell.swift in Sources */,
 				C2CF7CBA1C10280900D17C37 /* ConstraintDescription.swift in Sources */,
 				C2CF7CDF1C1558A900D17C37 /* MBTableHeaderView.swift in Sources */,
 				C2CF7CBE1C10280900D17C37 /* Debugging.swift in Sources */,
@@ -390,6 +429,7 @@
 				C2CF7CC31C10280900D17C37 /* View+SnapKit.swift in Sources */,
 				C2CF7CC11C10280900D17C37 /* LayoutConstraint.swift in Sources */,
 				C2CF7CD91C15306500D17C37 /* MBMotionWebViewController.swift in Sources */,
+				C2CF7CE41C17E9E600D17C37 /* MBNavigationBar.swift in Sources */,
 				C2CF7CBB1C10280900D17C37 /* ConstraintItem.swift in Sources */,
 				C2CF7CCC1C11747400D17C37 /* MBTimeUtil.swift in Sources */,
 				C2CF7CC41C10280900D17C37 /* ViewController+SnapKit.swift in Sources */,

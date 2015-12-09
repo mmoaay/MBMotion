@@ -16,17 +16,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-zk-cgA">
-                    <rect key="frame" x="130" y="53" width="212" height="181"/>
+                    <rect key="frame" x="113" y="51" width="247" height="186"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94r-qw-ox9">
-                            <rect key="frame" x="0.0" y="0.0" width="212" height="181"/>
+                            <rect key="frame" x="0.0" y="0.0" width="247" height="186"/>
                             <animations/>
                             <connections>
                                 <action selector="swiftGGPressed:" destination="-1" eventType="touchUpInside" id="Osj-aw-luV"/>
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechat" translatesAutoresizingMaskIntoConstraints="NO" id="YOE-17-ANe">
-                            <rect key="frame" x="31" y="0.0" width="150" height="150"/>
+                            <rect key="frame" x="48" y="0.0" width="150" height="150"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="150" id="H7v-b6-vQY"/>
@@ -34,9 +34,9 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwiftGG-走心的Swift翻译组" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPz-17-Meg">
-                            <rect key="frame" x="0.0" y="160" width="212" height="21"/>
+                            <rect key="frame" x="0.0" y="160" width="247" height="26"/>
                             <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>

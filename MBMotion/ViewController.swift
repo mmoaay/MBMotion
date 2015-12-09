@@ -12,6 +12,8 @@ class ViewController: UIViewController,MBTableHeaderViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headImageView: UIImageView!
+    
+    var items = ["MBMotionActionSheet"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,9 +30,8 @@ class ViewController: UIViewController,MBTableHeaderViewDelegate {
     }
     
     func initTableView(){
-        let tableHeaderView = MBTableHeaderView.shareInstance().getView()
-        tableHeaderView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width)
-        MBTableHeaderView.shareInstance().delegate = self
+        let tableHeaderView = MBTableHeaderView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.width))
+        tableHeaderView.delegate = self
         self.tableView.tableHeaderView = tableHeaderView
         
         self.parallelHeaderView = headImageView
@@ -45,20 +46,21 @@ class ViewController: UIViewController,MBTableHeaderViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 20
+        return self.items.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("fromHomeToActionSheet", sender: nil)
+        self.performSegueWithIdentifier("fromHomeTo"+self.items[indexPath.row], sender: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier : String = "cellIdentifier"
-        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier)
+        var cell:UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("ViewControllerTableViewCell")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ViewControllerTableViewCell")
         }
-        cell?.textLabel?.text = "MBMotionActionSheet"
+        cell?.selectionStyle = UITableViewCellSelectionStyle.None
+        cell?.textLabel?.text = self.items[indexPath.row]
+        cell?.textLabel?.font = UIFont(name: "Futura", size: 16)
         return cell!
     }
 

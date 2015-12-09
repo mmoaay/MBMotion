@@ -19,8 +19,7 @@ class MBMotionActionSheet: NSObject {
     
     private weak var containerView: UIView?
     
-    var isExpanded:Bool
-    var isShown:Bool
+    var isExpanded:Bool = false
     
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -30,11 +29,7 @@ class MBMotionActionSheet: NSObject {
     }
     */
     
-    init(containerView: UIView!, contentView: UIView!) {
-        
-        self.isShown = false
-        self.isExpanded = false
-        
+    init(containerView: UIView!, contentView: UIView!) {        
         super.init()
         
         self.containerView = containerView
@@ -50,14 +45,6 @@ class MBMotionActionSheet: NSObject {
         self.addActionSheet()
     }
     
-    func showActionSheet() {
-        if (true == isShown) {
-            self.hideActionSheet()
-        } else {
-            self.expandActionSheet()
-        }
-    }
-    
     private func animatedWithMotionView(height:Float, duration:NSTimeInterval ,options:UIViewAnimationOptions) {
         self.motionView.snp_updateConstraints { (make) -> Void in
             make.height.equalTo(height)
@@ -67,27 +54,27 @@ class MBMotionActionSheet: NSObject {
             }, completion: nil)
     }
     
-    private func animtedWithRipples(fromValue:Float, toValue:Float, duration:NSTimeInterval, keyPath:String, key:String){
-        let inAnimation = CAKeyframeAnimation(keyPath: keyPath)
+    private func animtedWithRipples(fromValue:Float, toValue:Float, duration:NSTimeInterval){
+        let animation = CAKeyframeAnimation(keyPath: "path")
         
-        inAnimation.duration = duration
-        inAnimation.fillMode = kCAFillModeForwards
-        inAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.duration = duration
+        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         var pathValues = Array<CGPathRef>()
         for(var i = 0; i <= Int(duration * 60); i++){
-            pathValues.append(pathForRipples(Float(Float(i) / (Float(duration) * 60)), fromValue:fromValue, toValue:toValue))
+            pathValues.append(getRipplesPath(Float(Float(i) / (Float(duration) * 60)), fromValue:fromValue, toValue:toValue))
         }
         
-        inAnimation.values = pathValues
-        inAnimation.autoreverses = false
-        inAnimation.removedOnCompletion = false
-        inAnimation.delegate = self
-        backgroundLayer.path = pathForRipples(1, fromValue:fromValue, toValue:toValue)
+        animation.values = pathValues
+        animation.autoreverses = false
+        animation.removedOnCompletion = false
+        animation.delegate = self
+        backgroundLayer.path = getRipplesPath(1, fromValue:fromValue, toValue:toValue)
         
-        backgroundLayer.addAnimation(inAnimation, forKey: key)
+        backgroundLayer.addAnimation(animation, forKey: "ripples")
     }
     
-    private func pathForRipples(progress:Float, fromValue:Float, toValue:Float) -> CGPathRef{
+    private func getRipplesPath(progress:Float, fromValue:Float, toValue:Float) -> CGPathRef{
         let valuePorgress = CGFloat((toValue-fromValue) * progress)
         let path = UIBezierPath()
         
@@ -110,14 +97,11 @@ class MBMotionActionSheet: NSObject {
     
     private func animatedWithStatusBar (style:UIStatusBarStyle, duration:NSTimeInterval) {
         if let _ = self.containerView {
-//            UIView.animateWithDuration(duration) { () -> Void in
-                UIApplication.sharedApplication().setStatusBarStyle(style, animated: true)
-//            }
+            UIApplication.sharedApplication().setStatusBarStyle(style, animated: true)
         }
     }
     
     private func animtedWithBkGround(opacity:Float, duration:NSTimeInterval) {
-        
         UIView.animateWithDuration(duration, animations: { () -> Void in
             self.bkgroundView.layer.opacity = opacity
             }) { (Bool) -> Void in
@@ -129,63 +113,7 @@ class MBMotionActionSheet: NSObject {
         }
     }
     
-    private func collapseActionSheet() {
-        self.animatedWithStatusBar(UIStatusBarStyle.Default,duration: 0.8)
-        self.animtedWithBkGround(0.0, duration: 0.8)
-        self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
-        
-        MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
-            self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1, keyPath: "path", key: "stepthree")
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.2, clurse: {
-            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "steptwo")
-            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)/2.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseOut)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.5, clurse: {
-            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3, keyPath: "path", key: "stepone")
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
-            self.isExpanded = false
-        })
-    }
-    
-    private func expandActionSheet() {
-        self.addActionSheet()
-        
-        self.animtedWithBkGround(0.4, duration: 0.8)
-        self.animatedWithStatusBar(UIStatusBarStyle.LightContent,duration: 0.8)
-        
-        self.animtedWithRipples(44.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "stepone")
-        self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.3)
-        
-        
-        MBTimeUtil.executeAfterDelay(0.3, clurse: {
-            self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)-25.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseIn)
-            self.animtedWithRipples(0.0, toValue: 54.0, duration: 0.3, keyPath: "path", key: "steptwo")
-            
-            self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.4)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
-            self.animtedWithRipples(54.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepthree")
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.7, clurse: { () -> Void in
-            self.animtedWithRipples(34.0, toValue: 44.0, duration: 0.1, keyPath: "path", key: "stepfour")
-            self.animtedWithContainerView(0.9, sy: 0.9, sz: 0.9, duration: 0.1)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
-            self.isExpanded = true
-            self.isShown = true
-        })
-    }
-    
     private func addActionSheet() {
-        
         UIApplication.sharedApplication().keyWindow?.addSubview(self.bkgroundView)
         self.bkgroundView.snp_remakeConstraints { (make) -> Void in
             make.edges.equalTo(UIApplication.sharedApplication().keyWindow!)
@@ -197,8 +125,6 @@ class MBMotionActionSheet: NSObject {
             make.leading.trailing.equalTo(UIApplication.sharedApplication().keyWindow!)
             make.bottom.equalTo(UIApplication.sharedApplication().keyWindow!)
         }
-        
-        
         
         UIApplication.sharedApplication().keyWindow?.layoutIfNeeded()
         
@@ -222,31 +148,63 @@ class MBMotionActionSheet: NSObject {
         self.bkgroundView.removeFromSuperview()
     }
     
-    private func hideActionSheet() {
-        self.animtedWithBkGround(0.0, duration: 0.8)
-        self.animatedWithStatusBar(UIStatusBarStyle.Default,duration: 0.8)
-        self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1, keyPath: "path", key: "stepfour")
-        self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.1)
-        
-        MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
-            self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1, keyPath: "path", key: "stepthree")
-            self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.4)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.2, clurse: {
-            self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3, keyPath: "path", key: "steptwo")
-            self.animatedWithMotionView(44.0+49.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseOut)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.5, clurse: {
-            self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3, keyPath: "path", key: "stepone")
-            self.animtedWithContainerView(1, sy: 1, sz: 1, duration: 0.3)
-        })
-        
-        MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
-            self.isExpanded = false
-            self.isShown = false
-        })
+    func expandActionSheet() {
+        if !self.isExpanded {
+            self.animtedWithBkGround(0.4, duration: 0.8)
+            self.animatedWithStatusBar(UIStatusBarStyle.LightContent,duration: 0.8)
+            
+            self.animtedWithRipples(44.0, toValue: 0.0, duration: 0.3)
+            self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.3)
+            
+            
+            MBTimeUtil.executeAfterDelay(0.3, clurse: {
+                self.animatedWithMotionView(Float(UIScreen.mainScreen().bounds.size.height)-25.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseIn)
+                self.animtedWithRipples(0.0, toValue: 54.0, duration: 0.3)
+                
+                self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.4)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
+                self.animtedWithRipples(54.0, toValue: 34.0, duration: 0.1)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.7, clurse: { () -> Void in
+                self.animtedWithRipples(34.0, toValue: 44.0, duration: 0.1)
+                self.animtedWithContainerView(0.9, sy: 0.9, sz: 0.9, duration: 0.1)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
+                self.isExpanded = true
+            })
+        }
+    }
+    
+    func collapseActionSheet() {
+        if self.isExpanded {
+            self.animtedWithBkGround(0.0, duration: 0.8)
+            self.animatedWithStatusBar(UIStatusBarStyle.Default,duration: 0.8)
+            self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1)
+            self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.1)
+            
+            MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
+                self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1)
+                self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.4)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.2, clurse: {
+                self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3)
+                self.animatedWithMotionView(44.0+49.0, duration: 0.3, options: UIViewAnimationOptions.CurveEaseOut)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.5, clurse: {
+                self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3)
+                self.animtedWithContainerView(1, sy: 1, sz: 1, duration: 0.3)
+            })
+            
+            MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
+                self.isExpanded = false
+            })
+        }
     }
 }
 

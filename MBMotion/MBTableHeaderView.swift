@@ -12,29 +12,28 @@ protocol MBTableHeaderViewDelegate {
     func swiftGGPressed()
 }
 
-class MBTableHeaderView: NSObject {
+class MBTableHeaderView: UIView {
     @IBOutlet var contentView: UIView!
     
     var delegate:MBTableHeaderViewDelegate?
     
-    class func shareInstance()->MBTableHeaderView{
-        struct MBSingleton{
-            static var predicate:dispatch_once_t = 0
-            static var instance:MBTableHeaderView? = nil
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        NSBundle.mainBundle().loadNibNamed("MBTableHeaderView", owner: self, options: nil)
+        
+        self.addSubview(self.contentView)
+        
+        self.contentView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(self)
         }
-        dispatch_once(&MBSingleton.predicate,{
-            MBSingleton.instance=MBTableHeaderView()
-            }
-        )
-        return MBSingleton.instance!
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     @IBAction func swiftGGPressed(sender: AnyObject) {
         self.delegate?.swiftGGPressed()
-    }
-    
-    func getView() -> UIView! {
-        NSBundle.mainBundle().loadNibNamed("MBTableHeaderView", owner: self, options: nil)
-        return self.contentView
     }
 }
