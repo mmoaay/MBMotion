@@ -11,6 +11,8 @@
                 <outlet property="indicatorView" destination="gKq-Wb-ypD" id="gls-Vh-FVB"/>
                 <outlet property="otherItemView" destination="Kyn-rM-hVM" id="vYB-jD-Ej9"/>
                 <outlet property="tableView" destination="l84-hz-wtB" id="Hep-AA-HPn"/>
+                <outlet property="titleLabel" destination="uto-mv-3SZ" id="epq-ls-iG9"/>
+                <outlet property="titleView" destination="zqg-d1-Ftd" id="DHQ-XX-MHb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="eJV-Sz-L1t"/>
             </connections>
         </placeholder>
@@ -19,13 +21,36 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uqi-24-nka" userLabel="HambegerButton" customClass="MBMotionHamburgButton" customModule="MBMotion" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="20" width="49" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqg-d1-Ftd" userLabel="TitleView">
+                    <rect key="frame" x="0.0" y="0.0" width="86" height="49"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqi-24-nka" userLabel="HambegerButton" customClass="MBMotionHamburgButton" customModule="MBMotion" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="49" id="9km-AR-reZ"/>
+                                <constraint firstAttribute="height" constant="49" id="eco-wB-gWm"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uto-mv-3SZ">
+                            <rect key="frame" x="49" y="15" width="37" height="19"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                            <color key="textColor" red="0.67843137254901964" green="0.70980392156862748" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="49" id="9km-AR-reZ"/>
-                        <constraint firstAttribute="height" constant="49" id="eco-wB-gWm"/>
+                        <constraint firstItem="uqi-24-nka" firstAttribute="leading" secondItem="zqg-d1-Ftd" secondAttribute="leading" id="9dB-qf-HJn"/>
+                        <constraint firstItem="uqi-24-nka" firstAttribute="top" secondItem="zqg-d1-Ftd" secondAttribute="top" id="M9A-bk-YgT"/>
+                        <constraint firstItem="uto-mv-3SZ" firstAttribute="leading" secondItem="uqi-24-nka" secondAttribute="trailing" id="WdD-Lq-i2w"/>
+                        <constraint firstAttribute="bottom" secondItem="uqi-24-nka" secondAttribute="bottom" id="Y9l-OR-Va2"/>
+                        <constraint firstAttribute="trailing" secondItem="uto-mv-3SZ" secondAttribute="trailing" id="jWq-tY-aCh"/>
+                        <constraint firstItem="uto-mv-3SZ" firstAttribute="centerY" secondItem="zqg-d1-Ftd" secondAttribute="centerY" id="vqs-4I-KA2"/>
                     </constraints>
                 </view>
                 <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKq-Wb-ypD">
@@ -113,15 +138,14 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gKq-Wb-ypD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="3nb-2N-JLR"/>
-                <constraint firstItem="uqi-24-nka" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4jA-WO-BCE"/>
+                <constraint firstItem="zqg-d1-Ftd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="48p-6q-7HF"/>
                 <constraint firstItem="gKq-Wb-ypD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Ea-lr-Bl7"/>
+                <constraint firstItem="zqg-d1-Ftd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F7S-dc-PVl"/>
                 <constraint firstItem="Kyn-rM-hVM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NP5-L4-m0y"/>
-                <constraint firstItem="uqi-24-nka" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WcW-Yg-6jJ"/>
                 <constraint firstAttribute="bottom" secondItem="l84-hz-wtB" secondAttribute="bottom" id="eQq-hQ-zTh"/>
                 <constraint firstItem="l84-hz-wtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fGM-ww-4q5"/>
                 <constraint firstAttribute="bottom" secondItem="l84-hz-wtB" secondAttribute="bottom" constant="20" symbolic="YES" id="jmU-Bw-9Jl"/>
                 <constraint firstAttribute="trailing" secondItem="Kyn-rM-hVM" secondAttribute="trailing" id="lvB-oi-pfj"/>
-                <constraint firstItem="l84-hz-wtB" firstAttribute="top" secondItem="uqi-24-nka" secondAttribute="bottom" id="nbe-cf-DgP"/>
                 <constraint firstItem="l84-hz-wtB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="69" id="npF-BF-FRd"/>
                 <constraint firstAttribute="trailing" secondItem="l84-hz-wtB" secondAttribute="trailing" id="rVk-Zp-F6K"/>
             </constraints>
@@ -132,7 +156,6 @@
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="jmU-Bw-9Jl"/>
-                    <exclude reference="nbe-cf-DgP"/>
                 </mask>
             </variation>
         </view>

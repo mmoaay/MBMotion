@@ -18,6 +18,8 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     @IBOutlet private var button: MBMotionHamburgButton!
     @IBOutlet private var indicatorView: UIView!
     
+    @IBOutlet var titleView: UIView!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var otherItemView: UIView!
     
     @IBOutlet var tableView: UITableView!
@@ -59,7 +61,7 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
         self.delegate?.switchButtonPressed(status)
         
         self.animatedWithIndicator(status)
-        self.animatedWithSwitchButton(status)
+        self.animatedWithTitleView(status)
         self.animatedWithOtherItem(status)
         self.animatedWithTableView(status)
         self.animatedWithTableViewCells(status)
@@ -78,7 +80,7 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
         }
     }
     
-    private func animatedWithSwitchButton (status:MBMotionHamburgButtonStatus) {
+    private func animatedWithTitleView (status:MBMotionHamburgButtonStatus) {
         
         var transform = CATransform3DIdentity
         if status == MBMotionHamburgButtonStatus.Open {
@@ -88,23 +90,26 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
         }
         
         let animation = CABasicAnimation(keyPath: "transform")
-        animation.fromValue = NSValue(CATransform3D: self.button.layer.transform)
+        animation.fromValue = NSValue(CATransform3D: self.titleView.layer.transform)
         animation.toValue = NSValue(CATransform3D: transform)
         animation.duration = 0.8
         
-        button.layer.addAnimation(animation, forKey: "transform")
-        button.layer.transform = transform
+        self.titleView.layer.addAnimation(animation, forKey: "titleview")
+        self.titleView.layer.transform = transform
     }
     
     private func animatedWithIndicator (status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.Open {
             MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
                 UIView.animateWithDuration(0.2) { () -> Void in
-                    self.indicatorView.layer.opacity = 1.0 }
+                    self.indicatorView.layer.opacity = 1.0
+                    self.titleLabel.layer.opacity = 1.0
+                }
             })
         }else {
             UIView.animateWithDuration(0.2) { () -> Void in
                 self.indicatorView.layer.opacity = 0.0
+                self.titleLabel.layer.opacity = 0.0
             }
         }
     }
@@ -112,7 +117,7 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     private func animatedWithTableView (status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.Open {
             MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
-                UIView.animateWithDuration(0.05*Double(self.tableView.visibleCells.count)+0.5) { () -> Void in
+                UIView.animateWithDuration(0.05*Double(self.tableView.visibleCells.count)+0.35) { () -> Void in
                     self.tableView.layer.opacity = 1.0 }
             })
         }else {
@@ -126,54 +131,14 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
         if status == MBMotionHamburgButtonStatus.Open {
             MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
                 for var i = 0; i < self.tableView.visibleCells.count; i++ {
-                    let visibleCell = self.tableView.visibleCells[i]
-                    
-                    var transform = CATransform3DIdentity
-                    transform = CATransform3DMakeTranslation(100, 0, 0)
-                    visibleCell.layer.transform = transform
-                    UIView.animateWithDuration(0.3, delay: Double(i)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                        
-                        transform = CATransform3DIdentity
-                        transform = CATransform3DMakeTranslation(-6, 0, 0)
-                        visibleCell.layer.transform = transform
-                        
-                        }, completion: { (Bool) -> Void in
-                            
-                        UIView.animateWithDuration(0.2, animations: { () -> Void in
-                            visibleCell.layer.transform = CATransform3DIdentity
-                        })
-                    })
-                
-                    visibleCell.layer.opacity = 0.0
-                    UIView.animateWithDuration(0.5, delay: Double(i)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                        visibleCell.layer.opacity = 1.0
-                    }, completion: nil)
+                    let visibleCell:MBMotionContentTableViewCell = self.tableView.visibleCells[i] as! MBMotionContentTableViewCell
+                    visibleCell.animatedWithContent(status, index: i, count: self.tableView.visibleCells.count)
                 }
             })
         }else {
             for var i = self.tableView.visibleCells.count-1; i >= 0; i-- {
-                let visibleCell = self.tableView.visibleCells[i]
-                
-                var transform = CATransform3DIdentity
-                transform = CATransform3DMakeTranslation(-6, 0, 0)
-                
-                UIView.animateWithDuration(0.05, delay: Double(self.tableView.visibleCells.count-1-i)*0.02, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                    
-                    visibleCell.layer.transform = transform
-                    
-                    }, completion: { (Bool) -> Void in
-                        
-                        UIView.animateWithDuration(0.05, animations: { () -> Void in
-                            transform = CATransform3DIdentity
-                            transform = CATransform3DMakeTranslation(100, 0, 0)
-                            visibleCell.layer.transform = transform
-                        })
-                })
-                
-                visibleCell.layer.opacity = 1.0
-                UIView.animateWithDuration(0.15, delay: Double(self.tableView.visibleCells.count-1-i)*0.02, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
-                    visibleCell.layer.opacity = 0.0
-                    }, completion: nil)
+                let visibleCell:MBMotionContentTableViewCell = self.tableView.visibleCells[i] as! MBMotionContentTableViewCell
+                visibleCell.animatedWithContent(status, index: i, count: self.tableView.visibleCells.count)
             }
         }
     }

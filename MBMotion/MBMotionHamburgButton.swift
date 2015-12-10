@@ -50,7 +50,13 @@ class MBMotionHamburgButton: UIView {
         }
     }
     
-    private func animtedWithLine(line:UIView!, angle:CGFloat, tx:CGFloat,ty:CGFloat, duration:NSTimeInterval) {
+    private func animtedWithLineColor(line:UIView!, color:UIColor, duration:NSTimeInterval) {
+        UIView.animateWithDuration(duration) { () -> Void in
+            line.layer.backgroundColor = color.CGColor
+        }
+    }
+    
+    private func animtedWithLineShape(line:UIView!, angle:CGFloat, tx:CGFloat,ty:CGFloat, duration:NSTimeInterval) {
         var transform = CATransform3DIdentity
         transform = CATransform3DTranslate(transform, tx, ty, 0)
         transform = CATransform3DRotate(transform, angle, 0, 0, 1)
@@ -60,28 +66,31 @@ class MBMotionHamburgButton: UIView {
         animation.toValue = NSValue(CATransform3D: transform)
         animation.duration = duration
         
-        line.layer.addAnimation(animation, forKey: "line")
+        line.layer.addAnimation(animation, forKey: "lineshape")
         line.layer.transform = transform
     }
     
     private func closeSwitchButton() {
         self.button.enabled = false
-        self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 3, duration: 0.2)
-        self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: -3, duration: 0.2)
+        self.animtedWithLineShape(self.topLine, angle: 0.0, tx: 0, ty: 3, duration: 0.2)
+        self.animtedWithLineShape(self.bottomLine, angle: 0.0, tx: 0, ty: -3, duration: 0.2)
+        
+        self.animtedWithLineColor(self.topLine, color: UIColor(red: 173/255, green: 181/255, blue: 184/255, alpha: 1), duration: 0.8)
+        self.animtedWithLineColor(self.bottomLine, color: UIColor(red: 173/255, green: 181/255, blue: 184/255, alpha: 1), duration: 0.8)
         
         MBTimeUtil.executeAfterDelay(0.2) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 4.5, duration: 0.2)
-            self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: -4.5, duration: 0.2)
+            self.animtedWithLineShape(self.topLine, angle: 0.0, tx: 0, ty: 4.5, duration: 0.2)
+            self.animtedWithLineShape(self.bottomLine, angle: 0.0, tx: 0, ty: -4.5, duration: 0.2)
         }
         
         MBTimeUtil.executeAfterDelay(0.4) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: CGFloat(M_PI_4+M_PI_4/5), tx: 0, ty: 4.5, duration: 0.3)
-            self.animtedWithLine(self.bottomLine, angle: CGFloat(M_PI_4*3+M_PI_4/5), tx: 0, ty: -4.5, duration: 0.3)
+            self.animtedWithLineShape(self.topLine, angle: CGFloat(M_PI_4+M_PI_4/5), tx: 0, ty: 4.5, duration: 0.3)
+            self.animtedWithLineShape(self.bottomLine, angle: CGFloat(M_PI_4*3+M_PI_4/5), tx: 0, ty: -4.5, duration: 0.3)
         }
         
         MBTimeUtil.executeAfterDelay(0.7) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: CGFloat(M_PI_4), tx: 0, ty: 4.5, duration: 0.1)
-            self.animtedWithLine(self.bottomLine, angle: CGFloat(M_PI_4*3), tx: 0, ty: -4.5, duration: 0.1)
+            self.animtedWithLineShape(self.topLine, angle: CGFloat(M_PI_4), tx: 0, ty: 4.5, duration: 0.1)
+            self.animtedWithLineShape(self.bottomLine, angle: CGFloat(M_PI_4*3), tx: 0, ty: -4.5, duration: 0.1)
         }
         MBTimeUtil.executeAfterDelay(0.8) { () -> Void in
             self.status = MBMotionHamburgButtonStatus.Close
@@ -91,22 +100,25 @@ class MBMotionHamburgButton: UIView {
     
     private func openSwithButton() {
         self.button.enabled = false
-        self.animtedWithLine(self.topLine, angle: CGFloat(M_PI_4+M_PI_4/5), tx: 0, ty: 4.5, duration: 0.1)
-        self.animtedWithLine(self.bottomLine, angle: CGFloat(M_PI_4*3+M_PI_4/5), tx: 0, ty: -4.5, duration: 0.1)
+        self.animtedWithLineShape(self.topLine, angle: CGFloat(M_PI_4+M_PI_4/5), tx: 0, ty: 4.5, duration: 0.1)
+        self.animtedWithLineShape(self.bottomLine, angle: CGFloat(M_PI_4*3+M_PI_4/5), tx: 0, ty: -4.5, duration: 0.1)
+        
+        self.animtedWithLineColor(self.topLine, color: UIColor.whiteColor(), duration: 0.8)
+        self.animtedWithLineColor(self.bottomLine, color: UIColor.whiteColor(), duration: 0.8)
         
         MBTimeUtil.executeAfterDelay(0.1) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 4.5, duration: 0.3)
-            self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: -4.5, duration: 0.3)
+            self.animtedWithLineShape(self.topLine, angle: 0.0, tx: 0, ty: 4.5, duration: 0.3)
+            self.animtedWithLineShape(self.bottomLine, angle: 0.0, tx: 0, ty: -4.5, duration: 0.3)
         }
         
         MBTimeUtil.executeAfterDelay(0.4) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 3, duration: 0.2)
-            self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: -3, duration: 0.2)
+            self.animtedWithLineShape(self.topLine, angle: 0.0, tx: 0, ty: 3, duration: 0.2)
+            self.animtedWithLineShape(self.bottomLine, angle: 0.0, tx: 0, ty: -3, duration: 0.2)
         }
 
         MBTimeUtil.executeAfterDelay(0.6) { () -> Void in
-            self.animtedWithLine(self.topLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
-            self.animtedWithLine(self.bottomLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
+            self.animtedWithLineShape(self.topLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
+            self.animtedWithLineShape(self.bottomLine, angle: 0.0, tx: 0, ty: 0, duration: 0.2)
         }
         MBTimeUtil.executeAfterDelay(0.8) { () -> Void in
             self.status = MBMotionHamburgButtonStatus.Open
