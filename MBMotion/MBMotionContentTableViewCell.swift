@@ -35,7 +35,7 @@ class MBMotionContentTableViewCell: UITableViewCell {
             var transform = CATransform3DIdentity
             transform = CATransform3DMakeTranslation(100, 0, 0)
             self.layer.transform = transform
-            UIView.animateWithDuration(0.2, delay: Double(index)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: Double(index)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 
                 transform = CATransform3DIdentity
                 transform = CATransform3DMakeTranslation(-6, 0, 0)
@@ -43,13 +43,13 @@ class MBMotionContentTableViewCell: UITableViewCell {
                 
                 }, completion: { (Bool) -> Void in
                     
-                    UIView.animateWithDuration(0.15, animations: { () -> Void in
+                    UIView.animateWithDuration(0.2, animations: { () -> Void in
                         self.layer.transform = CATransform3DIdentity
                     })
             })
             
             self.layer.opacity = 0.0
-            UIView.animateWithDuration(0.35, delay: Double(index)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: Double(index)*0.05, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
                 self.layer.opacity = 1.0
                 }, completion: nil)
         }else {

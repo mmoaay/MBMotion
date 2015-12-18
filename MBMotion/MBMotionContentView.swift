@@ -116,8 +116,8 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     
     private func animatedWithTableView (status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.Open {
-            MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
-                UIView.animateWithDuration(0.05*Double(self.tableView.visibleCells.count)+0.35) { () -> Void in
+            MBTimeUtil.executeAfterDelay(0.4, clurse: { () -> Void in
+                UIView.animateWithDuration(0.05*Double(self.tableView.visibleCells.count)+0.5) { () -> Void in
                     self.tableView.layer.opacity = 1.0 }
             })
         }else {
@@ -129,7 +129,7 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     
     private func animatedWithTableViewCells (status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.Open {
-            MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
+            MBTimeUtil.executeAfterDelay(0.4, clurse: { () -> Void in
                 for var i = 0; i < self.tableView.visibleCells.count; i++ {
                     let visibleCell:MBMotionContentTableViewCell = self.tableView.visibleCells[i] as! MBMotionContentTableViewCell
                     visibleCell.animatedWithContent(status, index: i, count: self.tableView.visibleCells.count)
