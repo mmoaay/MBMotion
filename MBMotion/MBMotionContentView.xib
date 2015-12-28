@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MBMotionContentView" customModule="MBMotion" customModuleProvider="target">
@@ -26,7 +26,6 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqi-24-nka" userLabel="HambegerButton" customClass="MBMotionHamburgButton" customModule="MBMotion" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
-                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="49" id="9km-AR-reZ"/>
@@ -34,15 +33,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uto-mv-3SZ">
-                            <rect key="frame" x="49" y="15" width="37" height="19"/>
-                            <animations/>
+                            <rect key="frame" x="49" y="15.5" width="37" height="18.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                             <color key="textColor" red="0.67843137254901964" green="0.70980392156862748" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="uqi-24-nka" firstAttribute="leading" secondItem="zqg-d1-Ftd" secondAttribute="leading" id="9dB-qf-HJn"/>
@@ -55,7 +52,6 @@
                 </view>
                 <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKq-Wb-ypD">
                     <rect key="frame" x="290" y="9" width="20" height="2"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="20" id="faA-KO-2UH"/>
@@ -72,7 +68,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7l-Ve-zg2">
                             <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
-                            <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="49" id="9Nz-qz-EQ7"/>
@@ -88,7 +83,6 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2s-qP-vyt">
                             <rect key="frame" x="49" y="0.0" width="49" height="49"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="49" id="CAV-UU-MJM"/>
                                 <constraint firstAttribute="width" constant="49" id="n0R-sK-aCN"/>
@@ -103,7 +97,6 @@
                             </variation>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="c2s-qP-vyt" firstAttribute="top" secondItem="Kyn-rM-hVM" secondAttribute="top" id="AIt-Ku-h89"/>
@@ -126,7 +119,6 @@
                 </view>
                 <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="l84-hz-wtB">
                     <rect key="frame" x="0.0" y="69" width="600" height="531"/>
-                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Mmg-C9-BD1"/>
@@ -134,7 +126,6 @@
                     </connections>
                 </tableView>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gKq-Wb-ypD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="3nb-2N-JLR"/>
@@ -142,12 +133,12 @@
                 <constraint firstItem="gKq-Wb-ypD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Ea-lr-Bl7"/>
                 <constraint firstItem="zqg-d1-Ftd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F7S-dc-PVl"/>
                 <constraint firstItem="Kyn-rM-hVM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NP5-L4-m0y"/>
-                <constraint firstAttribute="bottom" secondItem="l84-hz-wtB" secondAttribute="bottom" id="eQq-hQ-zTh"/>
-                <constraint firstItem="l84-hz-wtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fGM-ww-4q5"/>
+                <constraint firstAttribute="bottom" secondItem="l84-hz-wtB" secondAttribute="bottom" priority="750" id="eQq-hQ-zTh"/>
+                <constraint firstItem="l84-hz-wtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" priority="750" id="fGM-ww-4q5"/>
                 <constraint firstAttribute="bottom" secondItem="l84-hz-wtB" secondAttribute="bottom" constant="20" symbolic="YES" id="jmU-Bw-9Jl"/>
                 <constraint firstAttribute="trailing" secondItem="Kyn-rM-hVM" secondAttribute="trailing" id="lvB-oi-pfj"/>
-                <constraint firstItem="l84-hz-wtB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="69" id="npF-BF-FRd"/>
-                <constraint firstAttribute="trailing" secondItem="l84-hz-wtB" secondAttribute="trailing" id="rVk-Zp-F6K"/>
+                <constraint firstItem="l84-hz-wtB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" priority="750" constant="69" id="npF-BF-FRd"/>
+                <constraint firstAttribute="trailing" secondItem="l84-hz-wtB" secondAttribute="trailing" priority="750" id="rVk-Zp-F6K"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
