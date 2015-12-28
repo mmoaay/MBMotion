@@ -35,8 +35,8 @@ extension UIView{
             return frame.size.width
         }
         set{
-            let f = frame
-            frame.size.width = newValue
+            var f = frame
+            f.size.width = newValue
             frame = f
         }
     }
@@ -45,8 +45,8 @@ extension UIView{
             return frame.size.height
         }
         set{
-            let f = frame
-            frame.size.height = newValue
+            var f = frame
+            f.size.height = newValue
             frame = f
         }
     }
