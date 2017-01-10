@@ -1,7 +1,6 @@
 # MBMotion
 
-随便实现的特效，正在不断丰富中…
-目前实现的效果列表
+效果列表
   - MBMotionActionSheet
     
     设计效果如下：
