@@ -1,0 +1,6 @@
+framework module MBMotion {
+  umbrella header "MBMotion-umbrella.h"
+
+  export *
+  module * { export * }
+}

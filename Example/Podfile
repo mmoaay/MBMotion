@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MBMotion_Example' do
+  pod 'MBMotion', :path => '../'
+
+  target 'MBMotion_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

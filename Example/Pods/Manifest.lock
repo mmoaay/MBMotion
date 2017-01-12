@@ -1,0 +1,19 @@
+PODS:
+  - MBMotion (0.1.0):
+    - SnapKit
+  - SnapKit (3.1.2)
+
+DEPENDENCIES:
+  - MBMotion (from `../`)
+
+EXTERNAL SOURCES:
+  MBMotion:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MBMotion: f6fe4e92a654174a036784016e9226503fe6681e
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+
+PODFILE CHECKSUM: 0b2cb4d0648bf184b6a4a943e7ae8fe1537cec38
+
+COCOAPODS: 1.2.0.beta.1

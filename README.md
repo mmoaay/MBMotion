@@ -1,15 +1,29 @@
 # MBMotion
 
-随便实现的特效，正在不断丰富中…
-目前实现的效果列表
-  - MBMotionActionSheet
-    
-    设计效果如下：
-    
-    ![设计效果](https://github.com/mmoaay/MBMotion/blob/master/20.gif)
-    
-    实现效果如下：
-    
-    ![效果](https://github.com/mmoaay/MBMotion/blob/master/MBMotion.gif)
+[![CI Status](http://img.shields.io/travis/ZhengYidong/MBMotion.svg?style=flat)](https://travis-ci.org/ZhengYidong/MBMotion)
+[![Version](https://img.shields.io/cocoapods/v/MBMotion.svg?style=flat)](http://cocoapods.org/pods/MBMotion)
+[![License](https://img.shields.io/cocoapods/l/MBMotion.svg?style=flat)](http://cocoapods.org/pods/MBMotion)
+[![Platform](https://img.shields.io/cocoapods/p/MBMotion.svg?style=flat)](http://cocoapods.org/pods/MBMotion)
 
+## Example
 
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+MBMotion is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "MBMotion"
+```
+
+## Author
+
+ZhengYidong, yidong.zheng@ele.me
+
+## License
+
+MBMotion is available under the MIT license. See the LICENSE file for more info.

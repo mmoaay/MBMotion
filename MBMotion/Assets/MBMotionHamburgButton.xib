@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MBMotionHamburgButton" customModule="MBMotion">
+            <connections>
+                <outlet property="bottomLine" destination="29Y-Ue-gWE" id="VEg-fO-Bey"/>
+                <outlet property="button" destination="b63-GR-m2z" id="bmC-4r-VKL"/>
+                <outlet property="lineView" destination="yXr-x8-geX" id="48p-bv-VdC"/>
+                <outlet property="topLine" destination="pEB-kn-FX8" id="CNH-NC-fmB"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Sar-EZ-FnT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="72" height="69"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b63-GR-m2z">
+                    <rect key="frame" x="0.0" y="0.0" width="72" height="69"/>
+                    <connections>
+                        <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="Ejm-nP-q7U"/>
+                    </connections>
+                </button>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXr-x8-geX">
+                    <rect key="frame" x="26" y="25" width="20" height="20"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEB-kn-FX8">
+                            <rect key="frame" x="0.0" y="4" width="20" height="3"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="3" id="fsG-ua-9tS"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <real key="value" value="1.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="29Y-Ue-gWE">
+                            <rect key="frame" x="0.0" y="13" width="20" height="3"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="3" id="5Gt-hr-VUL"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <real key="value" value="1.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="29Y-Ue-gWE" secondAttribute="trailing" id="0cB-no-EB2"/>
+                        <constraint firstItem="pEB-kn-FX8" firstAttribute="leading" secondItem="yXr-x8-geX" secondAttribute="leading" id="89M-9q-MF7"/>
+                        <constraint firstAttribute="width" constant="20" id="9Bg-eM-KYq"/>
+                        <constraint firstItem="29Y-Ue-gWE" firstAttribute="height" secondItem="pEB-kn-FX8" secondAttribute="height" id="G1A-4U-jBy"/>
+                        <constraint firstItem="29Y-Ue-gWE" firstAttribute="top" secondItem="pEB-kn-FX8" secondAttribute="bottom" constant="6" id="Q25-f1-6BS"/>
+                        <constraint firstAttribute="bottom" secondItem="29Y-Ue-gWE" secondAttribute="bottom" constant="4" id="TvC-IM-dBs"/>
+                        <constraint firstItem="29Y-Ue-gWE" firstAttribute="leading" secondItem="yXr-x8-geX" secondAttribute="leading" id="UTK-Dv-ZjN"/>
+                        <constraint firstItem="pEB-kn-FX8" firstAttribute="top" secondItem="yXr-x8-geX" secondAttribute="top" constant="4" id="bBd-lT-GOL"/>
+                        <constraint firstAttribute="trailing" secondItem="pEB-kn-FX8" secondAttribute="trailing" id="h8c-Hh-kAp"/>
+                        <constraint firstAttribute="height" constant="20" id="hDT-Gw-ie1"/>
+                        <constraint firstAttribute="width" secondItem="yXr-x8-geX" secondAttribute="height" id="ox0-jC-8mv"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ox0-jC-8mv"/>
+                            <exclude reference="G1A-4U-jBy"/>
+                            <exclude reference="Q25-f1-6BS"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yXr-x8-geX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="28b-yb-Sms"/>
+                <constraint firstAttribute="trailing" secondItem="b63-GR-m2z" secondAttribute="trailing" id="HPX-te-Iyp"/>
+                <constraint firstItem="yXr-x8-geX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LqF-K3-dnF"/>
+                <constraint firstItem="b63-GR-m2z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XUy-FN-PUO"/>
+                <constraint firstAttribute="bottom" secondItem="b63-GR-m2z" secondAttribute="bottom" id="hVE-eU-VFV"/>
+                <constraint firstItem="b63-GR-m2z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kSS-rn-jqX"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="132" y="3.5"/>
+        </view>
+    </objects>
+</document>
