@@ -19,6 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="473" height="287"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_image" translatesAutoresizingMaskIntoConstraints="NO" id="LAX-bu-SAW">
+                    <rect key="frame" x="0.0" y="0.0" width="473" height="287"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qz-zk-cgA">
                     <rect key="frame" x="113" y="51" width="247" height="186"/>
                     <subviews>
@@ -65,7 +68,11 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="LAX-bu-SAW" secondAttribute="trailing" id="0Kg-FS-dDz"/>
+                <constraint firstItem="LAX-bu-SAW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4zG-rA-3q2"/>
                 <constraint firstItem="2Qz-zk-cgA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5bp-fb-2Fo"/>
+                <constraint firstItem="LAX-bu-SAW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QMD-nk-FMa"/>
+                <constraint firstAttribute="bottom" secondItem="LAX-bu-SAW" secondAttribute="bottom" id="dWK-Ke-dFO"/>
                 <constraint firstItem="2Qz-zk-cgA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rpS-ll-A50"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -76,6 +83,7 @@
         </view>
     </objects>
     <resources>
+        <image name="head_image" width="480" height="480"/>
         <image name="wechat" width="430" height="430"/>
     </resources>
 </document>

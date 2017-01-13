@@ -12,7 +12,6 @@ import MBMotion
 class ViewController: UIViewController,MBTableHeaderViewDelegate {
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var headImageView: UIImageView!
     
     var items = ["MBMotionActionSheet", "MBEyeLoading"]
     override func viewDidLoad() {
@@ -34,8 +33,6 @@ class ViewController: UIViewController,MBTableHeaderViewDelegate {
         let tableHeaderView = MBTableHeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width))
         tableHeaderView.delegate = self
         self.tableView.tableHeaderView = tableHeaderView
-        
-        self.parallelHeaderView = headImageView
     }
 
     func numberOfSectionsInTableView(_ tableView: UITableView) -> Int {

@@ -24,6 +24,8 @@
 		8572E7101E279B8E00D15244 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8572E70F1E279B8E00D15244 /* Main.storyboard */; };
 		8572E7121E279BA700D15244 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8572E7111E279BA700D15244 /* Images.xcassets */; };
 		8572E7171E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E7161E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift */; };
+		8572E7191E288B9800D15244 /* MBMotionTableViewCellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E7181E288B9800D15244 /* MBMotionTableViewCellContentView.swift */; };
+		8572E71B1E288BA600D15244 /* MBMotionTableViewCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8572E71A1E288BA600D15244 /* MBMotionTableViewCellContentView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		8572E70F1E279B8E00D15244 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8572E7111E279BA700D15244 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8572E7161E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionEyeLoadingViewController.swift; sourceTree = "<group>"; };
+		8572E7181E288B9800D15244 /* MBMotionTableViewCellContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionTableViewCellContentView.swift; sourceTree = "<group>"; };
+		8572E71A1E288BA600D15244 /* MBMotionTableViewCellContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMotionTableViewCellContentView.xib; sourceTree = "<group>"; };
 		A1872507DF01BAF24FADBDD7 /* MBMotion.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MBMotion.podspec; path = ../MBMotion.podspec; sourceTree = "<group>"; };
 		A764F58A1B580A1E6E75E835 /* Pods-MBMotion_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBMotion_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBMotion_Tests/Pods-MBMotion_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AECD8178E4C148064898A82F /* Pods-MBMotion_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBMotion_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBMotion_Tests/Pods-MBMotion_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				8572E7001E279B3D00D15244 /* MBTableHeaderView.swift */,
 				8572E7011E279B3D00D15244 /* MBMotionContentView.xib */,
 				8572E7021E279B3D00D15244 /* MBMotionContentView.swift */,
+				8572E7181E288B9800D15244 /* MBMotionTableViewCellContentView.swift */,
+				8572E71A1E288BA600D15244 /* MBMotionTableViewCellContentView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				8572E7101E279B8E00D15244 /* Main.storyboard in Resources */,
 				8572E7051E279B3D00D15244 /* MBTableHeaderView.xib in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				8572E71B1E288BA600D15244 /* MBMotionTableViewCellContentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +424,7 @@
 				8572E7171E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift in Sources */,
 				8572E7041E279B3D00D15244 /* MBNavigationBar.swift in Sources */,
 				8572E7081E279B3D00D15244 /* MBMotionContentView.swift in Sources */,
+				8572E7191E288B9800D15244 /* MBMotionTableViewCellContentView.swift in Sources */,
 				8572E70A1E279B4A00D15244 /* MBMotionWebViewController.swift in Sources */,
 				8572E7031E279B3D00D15244 /* MBNavigationItem.swift in Sources */,
 				8572E7061E279B3D00D15244 /* MBTableHeaderView.swift in Sources */,

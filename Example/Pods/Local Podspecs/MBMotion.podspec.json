@@ -1,9 +1,9 @@
 {
   "name": "MBMotion",
   "version": "0.1.0",
-  "summary": "A short description of MBMotion.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/MBMotion",
+  "summary": "MBMotion - Motion effects made by mmoaay.",
+  "description": "Motion effects made by mmoaay.",
+  "homepage": "https://github.com/mmoaay/MBMotion",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "ZhengYidong": "yidong.zheng@ele.me"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/MBMotion.git",
+    "git": "https://github.com/mmoaay/MBMotion.git",
     "tag": "0.1.0"
   },
   "platforms": {

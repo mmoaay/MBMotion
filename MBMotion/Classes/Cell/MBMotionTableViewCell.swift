@@ -1,5 +1,5 @@
 //
-//  MBMotionContentTableViewCell.swift
+//  MBMotionTableViewCell.swift
 //  MBMotion
 //
 //  Created by Perry on 15/12/9.
@@ -7,11 +7,9 @@
 //
 
 import UIKit
+import SnapKit
 
-public class MBMotionContentTableViewCell: UITableViewCell {
-    
-    @IBOutlet var icon:UIImageView!
-    @IBOutlet var title:UILabel!
+public class MBMotionTableViewCell: UITableViewCell {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -24,9 +22,15 @@ public class MBMotionContentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    public func setContent(_ content:(imageName:String, title:String)) {
-        self.title.text = content.title
-        self.icon.image = UIImage(named: content.imageName)
+    public func setContent(_ content:UIView) {
+        for subview in contentView.subviews {
+            subview.removeFromSuperview()
+        }
+        contentView.addSubview(content)
+        
+        content.snp.makeConstraints { (make: ConstraintMaker) in
+            make.edges.equalTo(self.contentView)
+        }
     }
     
     public func animatedWithContent (_ status:MBMotionHamburgButtonStatus, index:Int, count:Int) {

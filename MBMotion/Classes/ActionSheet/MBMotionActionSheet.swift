@@ -16,7 +16,7 @@ public class MBMotionActionSheet: NSObject, CAAnimationDelegate {
     @IBOutlet var bkgroundView: UIView!
     @IBOutlet var motionView: UIView!
     
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet public weak var contentView: UIView!
     
     fileprivate weak var containerView: UIView?
     
@@ -158,26 +158,25 @@ public class MBMotionActionSheet: NSObject, CAAnimationDelegate {
             self.animtedWithRipples(44.0, toValue: 0.0, duration: 0.3)
             self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.3)
             
-            
-            MBTimeUtil.executeAfterDelay(0.3, clurse: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.3) {
                 self.animatedWithMotionView(Float(UIScreen.main.bounds.size.height)-25.0, duration: 0.3, options: UIViewAnimationOptions.curveEaseIn)
                 self.animtedWithRipples(0.0, toValue: 54.0, duration: 0.3)
                 
                 self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.4)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.6) {
                 self.animtedWithRipples(54.0, toValue: 34.0, duration: 0.1)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.7, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.7) {
                 self.animtedWithRipples(34.0, toValue: 44.0, duration: 0.1)
                 self.animtedWithContainerView(0.9, sy: 0.9, sz: 0.9, duration: 0.1)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.8) {
                 self.isExpanded = true
-            })
+            }
         }
     }
     
@@ -188,24 +187,24 @@ public class MBMotionActionSheet: NSObject, CAAnimationDelegate {
             self.animtedWithRipples(44.0, toValue: 34.0, duration: 0.1)
             self.animtedWithContainerView(0.89, sy: 0.89, sz: 0.89, duration: 0.1)
             
-            MBTimeUtil.executeAfterDelay(0.1, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1) {
                 self.animtedWithRipples(34.0, toValue: 54.0, duration: 0.1)
                 self.animtedWithContainerView(1.02, sy: 1.02, sz: 1.02, duration: 0.4)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.2, clurse: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.2) {
                 self.animtedWithRipples(54.0, toValue: 0.0, duration: 0.3)
                 self.animatedWithMotionView(44.0+49.0, duration: 0.3, options: UIViewAnimationOptions.curveEaseOut)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.5, clurse: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
                 self.animtedWithRipples(0.0, toValue: 44.0, duration: 0.3)
                 self.animtedWithContainerView(1, sy: 1, sz: 1, duration: 0.3)
-            })
+            }
             
-            MBTimeUtil.executeAfterDelay(0.8, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.8) {
                 self.isExpanded = false
-            })
+            }
         }
     }
 }

@@ -130,7 +130,7 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="gKq-Wb-ypD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="3nb-2N-JLR"/>
                 <constraint firstItem="zqg-d1-Ftd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="48p-6q-7HF"/>

@@ -26,9 +26,9 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Js-Vx-pJf" userLabel="MotionView">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <subviews>
-                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-BK-HdY" userLabel="ContentView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" red="0.16470588235294117" green="0.21568627450980393" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvB-BK-HdY" userLabel="ContentView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.1647058824" green="0.2156862745" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

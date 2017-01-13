@@ -45,8 +45,8 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     }
     
     fileprivate func initTableView() {
-        let cellNib = UINib(nibName: "MBMotionContentTableViewCell", bundle: Bundle(for: MBMotionContentTableViewCell.classForCoder()))
-        self.tableView.register(cellNib, forCellReuseIdentifier: "MBMotionContentTableViewCell")
+        let cellNib = UINib(nibName: "MBMotionTableViewCell", bundle: Bundle(for: MBMotionTableViewCell.classForCoder()))
+        self.tableView.register(cellNib, forCellReuseIdentifier: "MBMotionTableViewCell")
         self.tableView.separatorColor = UIColor(red: 74/255, green: 82/255, blue: 90/255, alpha: 1)
     }
 
@@ -74,10 +74,10 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
                 self.otherItemView.layer.opacity = 0.0
             }) 
         }else {
-            MBTimeUtil.executeAfterDelay(0.5, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.5) {
                 UIView.animate(withDuration: 0.3, animations: { () -> Void in
-                    self.otherItemView.layer.opacity = 1.0 }) 
-            })
+                    self.otherItemView.layer.opacity = 1.0 })
+            }
         }
     }
     
@@ -101,12 +101,12 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     
     fileprivate func animatedWithIndicator (_ status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.open {
-            MBTimeUtil.executeAfterDelay(0.6, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.6) {
                 UIView.animate(withDuration: 0.2, animations: { () -> Void in
                     self.indicatorView.layer.opacity = 1.0
                     self.titleLabel.layer.opacity = 1.0
-                }) 
-            })
+                })
+            }
         }else {
             UIView.animate(withDuration: 0.2, animations: { () -> Void in
                 self.indicatorView.layer.opacity = 0.0
@@ -117,10 +117,10 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     
     fileprivate func animatedWithTableView (_ status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.open {
-            MBTimeUtil.executeAfterDelay(0.4, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.4) {
                 UIView.animate(withDuration: 0.05*Double(self.tableView.visibleCells.count)+0.5, animations: { () -> Void in
-                    self.tableView.layer.opacity = 1.0 }) 
-            })
+                    self.tableView.layer.opacity = 1.0 })
+            }
         }else {
             UIView.animate(withDuration: 0.5, animations: { () -> Void in
                 self.tableView.layer.opacity = 0.0
@@ -130,15 +130,15 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     
     fileprivate func animatedWithTableViewCells (_ status:MBMotionHamburgButtonStatus) {
         if status == MBMotionHamburgButtonStatus.open {
-            MBTimeUtil.executeAfterDelay(0.4, clurse: { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.4) {
                 for i in 0..<self.tableView.visibleCells.count {
-                    let visibleCell:MBMotionContentTableViewCell = self.tableView.visibleCells[i] as! MBMotionContentTableViewCell
+                    let visibleCell:MBMotionTableViewCell = self.tableView.visibleCells[i] as! MBMotionTableViewCell
                     visibleCell.animatedWithContent(status, index: i, count: self.tableView.visibleCells.count)
                 }
-            })
+            }
         }else {
             for i in 0..<self.tableView.visibleCells.count {
-                let visibleCell:MBMotionContentTableViewCell = self.tableView.visibleCells[self.tableView.visibleCells.count-1-i] as! MBMotionContentTableViewCell
+                let visibleCell:MBMotionTableViewCell = self.tableView.visibleCells[self.tableView.visibleCells.count-1-i] as! MBMotionTableViewCell
                 visibleCell.animatedWithContent(status, index: self.tableView.visibleCells.count-1-i, count: self.tableView.visibleCells.count)
             }
         }
@@ -162,11 +162,13 @@ class MBMotionContentView: UIView, MBMotionHamburgButtonDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        var cell:MBMotionContentTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "MBMotionContentTableViewCell") as? MBMotionContentTableViewCell
+        var cell:MBMotionTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "MBMotionTableViewCell") as? MBMotionTableViewCell
         if cell == nil {
-            cell = MBMotionContentTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ViewControllerTableViewCell")
+            cell = MBMotionTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "ViewControllerTableViewCell")
         }
-        cell?.setContent(self.tuples[indexPath.row])
+        let content = MBMotionTableViewCellContentView()
+        content.setContent(self.tuples[indexPath.row])
+        cell?.setContent(content)
         return cell!
     }
 }

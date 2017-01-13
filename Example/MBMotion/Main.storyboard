@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,12 +37,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_image" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-Cu-B36">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BRs-Cu-B36" secondAttribute="height" id="Lk1-5Q-LAp"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKb-H2-a15">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,28 +48,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BRs-Cu-B36" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="5qE-rq-KRl"/>
                             <constraint firstAttribute="trailing" secondItem="BKb-H2-a15" secondAttribute="trailing" id="67y-J4-irN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BRs-Cu-B36" secondAttribute="trailing" id="Dsg-23-5Uv"/>
-                            <constraint firstAttribute="trailing" secondItem="BRs-Cu-B36" secondAttribute="trailing" id="Pex-8n-eAX"/>
                             <constraint firstItem="BKb-H2-a15" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-64" id="e6N-4d-UcU"/>
-                            <constraint firstItem="BRs-Cu-B36" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="elY-8T-rRG"/>
-                            <constraint firstItem="BRs-Cu-B36" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="-64" id="kHN-SK-o2T"/>
                             <constraint firstItem="BKb-H2-a15" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ljr-W4-5K5"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="BKb-H2-a15" secondAttribute="bottom" id="x85-PF-vZa"/>
-                            <constraint firstItem="BRs-Cu-B36" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zMw-64-qWC"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Dsg-23-5Uv"/>
-                                <exclude reference="elY-8T-rRG"/>
-                                <exclude reference="zMw-64-qWC"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="MBMotion" id="01t-68-o9l" customClass="MBNavigationItem" customModule="MBMotion_Example" customModuleProvider="target"/>
                     <connections>
-                        <outlet property="headImageView" destination="BRs-Cu-B36" id="PSa-Os-aLL"/>
                         <outlet property="tableView" destination="BKb-H2-a15" id="d5m-2U-Zed"/>
                         <segue destination="BsW-nu-SNI" kind="show" identifier="fromHomeToWeb" id="xSd-Ts-Q90"/>
                         <segue destination="SSP-wq-jgf" kind="show" identifier="fromHomeToMBMotionActionSheet" id="hGa-UQ-8LG"/>
@@ -170,7 +148,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="head_image" width="480" height="480"/>
         <image name="trash_icon" width="20" height="20"/>
     </resources>
 </document>
