@@ -10,7 +10,7 @@
 |Name|Class|Demo|Remark|
 |:-:|:-:|:-:|:-:|
 |ActionSheet|MBMotionActionSheet| ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_actionsheet.gif) | ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_actionsheet_origin.gif)|
-|Eye Loading|MBEyeLoading| ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_mbmotion_eyeloading.gif) | - |
+|Eye Loading|MBEyeLoading| ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_eyeloading.gif) | ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_eyeloading_origin.gif) |
 |Hamburg Button|MBMotionHamburgButton| ![](https://github.com/mmoaay/MBMotion/blob/master/Demo/mbmotion_hamburgbutton.gif) | - |
 
 ## Example
