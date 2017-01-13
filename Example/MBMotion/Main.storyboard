@@ -60,6 +60,7 @@
                         <segue destination="BsW-nu-SNI" kind="show" identifier="fromHomeToWeb" id="xSd-Ts-Q90"/>
                         <segue destination="SSP-wq-jgf" kind="show" identifier="fromHomeToMBMotionActionSheet" id="hGa-UQ-8LG"/>
                         <segue destination="xKP-tq-IXh" kind="show" identifier="fromHomeToMBEyeLoading" id="bvd-io-K1P"/>
+                        <segue destination="zNY-TZ-0Py" kind="show" identifier="fromHomeToMBMotionHamburgButton" id="lpQ-K7-4MX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -125,7 +126,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M75-3t-ZiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346" y="574"/>
+            <point key="canvasLocation" x="1345" y="411"/>
+        </scene>
+        <!--MBMotionHamburgButton-->
+        <scene sceneID="SC3-b5-4LJ">
+            <objects>
+                <viewController id="zNY-TZ-0Py" customClass="MBMotionHamburgButtonViewController" customModule="MBMotion_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UVH-xx-OOF"/>
+                        <viewControllerLayoutGuide type="bottom" id="mVA-D1-msc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ibQ-LJ-Z2R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cBs-Z2-fCW" customClass="MBMotionHamburgButton" customModule="MBMotion">
+                                <rect key="frame" x="162" y="308.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IKY-MV-meN"/>
+                                    <constraint firstAttribute="width" constant="50" id="qGC-85-0IX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1647058824" green="0.2156862745" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cBs-Z2-fCW" firstAttribute="centerY" secondItem="ibQ-LJ-Z2R" secondAttribute="centerY" id="7da-XH-cWm"/>
+                            <constraint firstItem="cBs-Z2-fCW" firstAttribute="centerX" secondItem="ibQ-LJ-Z2R" secondAttribute="centerX" id="PAo-ut-BsK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="MBMotionHamburgButton" id="aPY-iy-8bU" customClass="MBNavigationItem" customModule="MBMotion_Example" customModuleProvider="target"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qs4-bd-s4t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2031" y="411"/>
         </scene>
         <!--Eyeloading-->
         <scene sceneID="nO7-cj-ewT">
@@ -144,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qr2-4J-wCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="1242"/>
+            <point key="canvasLocation" x="1345" y="1057"/>
         </scene>
     </scenes>
     <resources>

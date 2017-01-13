@@ -26,6 +26,7 @@
 		8572E7171E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E7161E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift */; };
 		8572E7191E288B9800D15244 /* MBMotionTableViewCellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E7181E288B9800D15244 /* MBMotionTableViewCellContentView.swift */; };
 		8572E71B1E288BA600D15244 /* MBMotionTableViewCellContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8572E71A1E288BA600D15244 /* MBMotionTableViewCellContentView.xib */; };
+		8572E71D1E289EDC00D15244 /* MBMotionHamburgButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E71C1E289EDC00D15244 /* MBMotionHamburgButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		8572E7161E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionEyeLoadingViewController.swift; sourceTree = "<group>"; };
 		8572E7181E288B9800D15244 /* MBMotionTableViewCellContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionTableViewCellContentView.swift; sourceTree = "<group>"; };
 		8572E71A1E288BA600D15244 /* MBMotionTableViewCellContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBMotionTableViewCellContentView.xib; sourceTree = "<group>"; };
+		8572E71C1E289EDC00D15244 /* MBMotionHamburgButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBMotionHamburgButtonViewController.swift; sourceTree = "<group>"; };
 		A1872507DF01BAF24FADBDD7 /* MBMotion.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MBMotion.podspec; path = ../MBMotion.podspec; sourceTree = "<group>"; };
 		A764F58A1B580A1E6E75E835 /* Pods-MBMotion_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBMotion_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBMotion_Tests/Pods-MBMotion_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AECD8178E4C148064898A82F /* Pods-MBMotion_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBMotion_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBMotion_Tests/Pods-MBMotion_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				8572E7091E279B4A00D15244 /* MBMotionWebViewController.swift */,
 				8572E70D1E279B7000D15244 /* ViewController.swift */,
 				8572E7161E27B00A00D15244 /* MBMotionEyeLoadingViewController.swift */,
+				8572E71C1E289EDC00D15244 /* MBMotionHamburgButtonViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				8572E7061E279B3D00D15244 /* MBTableHeaderView.swift in Sources */,
 				8572E70C1E279B5800D15244 /* MBMotionActionSheetDemoViewController.swift in Sources */,
 				8572E70E1E279B7000D15244 /* ViewController.swift in Sources */,
+				8572E71D1E289EDC00D15244 /* MBMotionHamburgButtonViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

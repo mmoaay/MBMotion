@@ -13,7 +13,7 @@ class ViewController: UIViewController,MBTableHeaderViewDelegate {
 
     @IBOutlet var tableView: UITableView!
     
-    var items = ["MBMotionActionSheet", "MBEyeLoading"]
+    var items = ["MBMotionActionSheet", "MBEyeLoading", "MBMotionHamburgButton"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
