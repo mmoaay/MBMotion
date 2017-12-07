@@ -30,7 +30,7 @@ pod "MBMotion"
 
 ## Author
 
-ZhengYidong, yidong.zheng@ele.me
+mmoaay, mm@swift.gg
 
 ## License
 
